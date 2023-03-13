@@ -1,13 +1,16 @@
 import Link from "next/link";
-import React from "react";
-
+import {useTheme} from "next-themes"
 export default function Header() {
+  const { theme, setTheme } = useTheme();
+  const toggleTheme = () => {
+    setTheme(theme === "black" ? "emerald" : "black");
+    };
   return (
-    <div className="max-w-5xl p-5 mx-auto flex items-center justify-between">
+    <div className="max-w-5xl p-5 mx-auto flex items-center justify-between font-medium text-xl">
       <Link href="/">nur.codes</Link>
       <div>
         <label className="swap swap-rotate">
-          <input type="checkbox" />
+          <input type="checkbox" onClick={toggleTheme} />
 
           <svg
             className="swap-on fill-current w-6 h-6"

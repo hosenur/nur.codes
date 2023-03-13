@@ -1,3 +1,4 @@
+import Featured from "@/components/Featured";
 import Header from "@/components/Header";
 import Head from "next/head";
 import Link from "next/link";
@@ -9,11 +10,10 @@ export default function index() {
       <Head>
         <title>nur&apos;s blog</title>
       </Head>
-      <Header />
-      <hr />
+      <Header/>
       <div className="max-w-5xl mx-auto p-5">
-        <Link href="/blog">blog</Link>
+        <Featured />
       </div>
     </>
-  );
+  )
 }

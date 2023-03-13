@@ -2,7 +2,8 @@ import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { Josefin_Sans } from "next/font/google";
-import NextNProgress from 'nextjs-progressbar';
+import Script from "next/script";
+import NextNProgress from "nextjs-progressbar";
 
 const josefin = Josefin_Sans({
   weight: ["100", "200", "400", "500", "600", "700"],
@@ -10,10 +11,11 @@ const josefin = Josefin_Sans({
 });
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider defaultTheme="black" enableSystem={false}>
+    <ThemeProvider defaultTheme="emerald" enableSystem={false}>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
       <main className={josefin.className}>
-        <NextNProgress/>
-        <Component {...pageProps} />;
+        <NextNProgress />
+        <Component {...pageProps} />
       </main>
     </ThemeProvider>
   );
