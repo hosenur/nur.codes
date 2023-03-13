@@ -3,7 +3,7 @@ import {useTheme} from "next-themes"
 export default function Header() {
   const { theme, setTheme } = useTheme();
   const toggleTheme = () => {
-    setTheme(theme === "black" ? "emerald" : "black");
+    setTheme(theme === "lofi" ? "black" : "lofi");
     };
   return (
     <div className="max-w-5xl p-5 mx-auto flex items-center justify-between font-medium text-xl">
