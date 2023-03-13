@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { Josefin_Sans } from "next/font/google";
 const josefin = Josefin_Sans({
@@ -7,8 +8,10 @@ const josefin = Josefin_Sans({
 });
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={josefin.className}>
-      <Component {...pageProps} />;
-    </main>
+    <ThemeProvider defaultTheme="black" enableSystem={false}>
+      <main className={josefin.className}>
+        <Component {...pageProps} />;
+      </main>
+    </ThemeProvider>
   );
 }
