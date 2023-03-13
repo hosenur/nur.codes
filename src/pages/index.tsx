@@ -1,7 +1,10 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function index() {
   return (
-    <div>index</div>
+    <div>
+      <Link href="/blog">blog</Link>
+    </div>
   )
 }
