@@ -1,10 +1,19 @@
-import Image from 'next/image'
-import React from 'react'
+import urlFor from "@/utils/urlFor";
+import Image from "next/image";
+import React from "react";
 
-export default function Featured() {
+export default function Featured({ data }: any) {
   return (
-    <div className='h-96 border'>
-        {/* <Image width={1000} height={200} src="https://cdn.dribbble.com/userupload/4207729/file/original-3a1ccbd967db9eece92883294d6c2325.png?compress=1&resize=1200x900" alt='test'/> */}
+    <div className="h-96 flex flex-col space-y-3">
+      <Image className="rounded-lg" width={1920} height={1080} src={data.cover} alt="test" />
+      <div className="flex justify-between">
+
+      <h1 className="text-xl">Featured ✨ {data.title}</h1>
+      <div>
+        <Image className="rounded-full" width={50} height={50} src={urlFor(data.authorImage).url()} alt="test" />
+      </div>
+      </div>
+      <p>{data.description}</p>
     </div>
-  )
+  );
 }
