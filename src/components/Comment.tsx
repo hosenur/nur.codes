@@ -1,7 +1,5 @@
 import Giscus from "@giscus/react";
-import { useTheme } from "next-themes";
 export default function Comments() {
-  const { theme } = useTheme();
   return (
     <Giscus
       repo="HOSENUR/nur.codes"
@@ -12,7 +10,7 @@ export default function Comments() {
       mapping="url"
       reactionsEnabled="1"
       emitMetadata="0"
-      theme={theme=="black"?"dark_dimmed":"light"}
+      theme={"light"}
     />
   );
 }

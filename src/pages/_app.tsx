@@ -1,22 +1,18 @@
 import "@/styles/globals.css";
-import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
-import { Josefin_Sans } from "next/font/google";
+import {  Ubuntu_Mono } from "next/font/google";
 import Script from "next/script";
 import NextNProgress from "nextjs-progressbar";
 
-const josefin = Josefin_Sans({
-  weight: ["100", "200", "400", "500", "600", "700"],
+const ubuntu = Ubuntu_Mono({
+  weight: ["400","700"],
   subsets: ["latin"],
 });
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider defaultTheme="emerald" enableSystem={false}>
-      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
-      <main className={josefin.className}>
-        <NextNProgress />
+      <main className={ubuntu.className}>
+        <NextNProgress color="black" />
         <Component {...pageProps} />
       </main>
-    </ThemeProvider>
   );
 }

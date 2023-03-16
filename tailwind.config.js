@@ -13,6 +13,6 @@ module.exports = {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["lofi","black"]
+    themes: ["lofi"]
   }
 }
