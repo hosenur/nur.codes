@@ -14,7 +14,7 @@ export default function Blog({ data }: { data: any }) {
       <Header />
       <div className="max-w-5xl mx-auto p-5 flex flex-col space-y-5">
         <PortableText value={data.body} />
-        <Comments/>
+        <Comments />
       </div>
     </>
   );
@@ -43,5 +43,6 @@ export const getStaticProps = async ({ params }: any) => {
     props: {
       data,
     },
+    revalidate: 60*5,
   };
 };
