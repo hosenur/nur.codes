@@ -11,6 +11,7 @@ const fira = Fira_Mono({
 export default function App({ Component, pageProps }: AppProps) {
   return (
       <main className={fira.className}>
+        <Script src="https://scripts.simpleanalyticscdn.com/latest.js"/>
         <NextNProgress color="black" />
         <Component {...pageProps} />
       </main>
