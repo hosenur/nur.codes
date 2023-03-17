@@ -3,8 +3,18 @@ import Header from "@/components/Header";
 import { sanityClient } from "@/utils/sanity.client";
 import { PortableText } from "@portabletext/react";
 import Head from "next/head";
-import React from "react";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import {nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
+const serializers = {
+  types: {
+    codeBlock: ({ value }: any) => (
+      <SyntaxHighlighter className="rounded" style={nightOwl}  language={value.language}>
+        {value.code}
+      </SyntaxHighlighter>
+    ),
+  },
+};
 export default function Blog({ data }: { data: any }) {
   return (
     <>
@@ -13,7 +23,7 @@ export default function Blog({ data }: { data: any }) {
       </Head>
       <Header />
       <div className="max-w-5xl mx-auto p-5 flex flex-col space-y-5">
-        <PortableText value={data.body} />
+        <PortableText components={serializers} value={data.body} />
         <Comments />
       </div>
     </>
@@ -43,6 +53,6 @@ export const getStaticProps = async ({ params }: any) => {
     props: {
       data,
     },
-    revalidate: 60*60,
+    revalidate: 60 * 60,
   };
 };
