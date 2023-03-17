@@ -4,7 +4,7 @@ import { sanityClient } from "@/utils/sanity.client";
 import { PortableText } from "@portabletext/react";
 import Head from "next/head";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import {nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import {nightOwl } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 const serializers = {
   types: {
