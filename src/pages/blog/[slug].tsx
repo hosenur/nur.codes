@@ -5,7 +5,7 @@ import { PortableText } from "@portabletext/react";
 import Head from "next/head";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/cjs/styles/hljs";
-
+import { RoughNotation } from "react-rough-notation";
 const serializers = {
   types: {
     codeBlock: ({ value }: any) => (
@@ -17,6 +17,10 @@ const serializers = {
         {value.code}
       </SyntaxHighlighter>
     ),
+  },
+  marks: {
+    em: ({ children }: any) => <RoughNotation padding={1} show iterations={2} color="#B1AFFF" multiline type="underline">{children}</RoughNotation>,
+    strong: ({ children }: any) => <RoughNotation padding={5} iterations={2} color="#B1AFFF" multiline show type="highlight">{children}</RoughNotation>,
   },
 };
 export default function Blog({ data }: { data: any }) {
