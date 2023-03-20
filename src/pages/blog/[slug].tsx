@@ -4,23 +4,46 @@ import { sanityClient } from "@/utils/sanity.client";
 import { PortableText } from "@portabletext/react";
 import Head from "next/head";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { nightOwl } from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import { RoughNotation } from "react-rough-notation";
+import { dracula} from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 const serializers = {
   types: {
     codeBlock: ({ value }: any) => (
       <SyntaxHighlighter
+        showLineNumbers
         className="rounded"
-        style={nightOwl}
-        language={value.language}
+        style={dracula}
+        language={"javascript"}
       >
         {value.code}
       </SyntaxHighlighter>
     ),
   },
   marks: {
-    em: ({ children }: any) => <RoughNotation padding={1} show iterations={2} color="#B1AFFF" multiline type="underline">{children}</RoughNotation>,
-    strong: ({ children }: any) => <RoughNotation padding={5} iterations={2} color="#B1AFFF" multiline show type="highlight">{children}</RoughNotation>,
+    em: ({ children }: any) => (
+      <RoughNotation
+        padding={1}
+        
+        iterations={2}
+        color="#B1AFFF"
+        multiline
+        type="underline"
+      >
+        {children}
+      </RoughNotation>
+    ),
+    strong: ({ children }: any) => (
+      <RoughNotation
+        padding={5}
+        iterations={1}
+        color="#B1AFFF"
+        multiline
+        
+        type="highlight"
+      >
+        {children}
+      </RoughNotation>
+    ),
   },
 };
 export default function Blog({ data }: { data: any }) {
@@ -34,7 +57,10 @@ export default function Blog({ data }: { data: any }) {
       </Head>
       <Header />
       <div className="max-w-5xl mx-auto p-5 flex flex-col space-y-5">
+        <RoughNotationGroup show>
+
         <PortableText components={serializers} value={data.body} />
+        </RoughNotationGroup>
         <Comments />
       </div>
     </>

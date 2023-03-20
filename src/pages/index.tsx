@@ -32,8 +32,9 @@ export default function index({ blogs }: any) {
 export async function getServerSideProps() {
   //get 5 latest posts
   const blogs = await sanityClient.fetch(
-    `*[_type == "blog"] | order(publishedAt desc) [0..5] {
+    `*[_type == "blog" && draft!=true] | order(publishedAt desc) [0..5] {
       _id,
+      draft,
       title,
       description,
       slug,
@@ -41,6 +42,7 @@ export async function getServerSideProps() {
       "author": author->name,
     }`
   );
+
   return {
     props: {
       blogs,
