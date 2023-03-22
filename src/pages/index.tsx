@@ -12,7 +12,7 @@ export default function index({ blogs }: any) {
         <title>nur&apos;s blog</title>
       </Head>
       <Header />
-      <div className="max-w-5xl mx-auto p-5 flex flex-col space-y-5">
+      <div className="max-w-5xl pt-24 mx-auto p-5 flex flex-col space-y-5">
         <span className="font-bold text-4xl">Latest Blogs</span>
         {blogs.map((blog: any) => (
           <div key={blog._id} className="flex  space-y-2 flex-col">
