@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
       <main className={space.className}>
         <Script src="https://scripts.simpleanalyticscdn.com/latest.js"/>
-        <NextNProgress color="black" />
+        <NextNProgress options={{showSpinner:false}} color="black" />
         <Component {...pageProps} />
       </main>
   );
