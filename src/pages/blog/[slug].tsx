@@ -9,6 +9,7 @@ import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import urlFor from "@/utils/urlFor";
+import moment from "moment";
 const serializers = {
   types: {
     codeBlock: ({ value }: any) => (
@@ -48,6 +49,7 @@ const serializers = {
   },
 };
 export default function Blog({ data }: { data: any }) {
+  console.log(data);
   return (
     <>
       <Head>
@@ -59,6 +61,20 @@ export default function Blog({ data }: { data: any }) {
       <Header />
       <div className="max-w-5xl pt-24 mx-auto p-5 flex flex-col space-y-5">
         <h1 className="font-bold text-3xl">{data.title}</h1>
+        <div className="flex space-x-5 items-center">
+          <Image
+            src={urlFor(data.authorImage).url()}
+            width={30}
+            height={30}
+            alt="author"
+            className="rounded-full"
+          />
+          <span className="font-bold">{data.author}</span>
+          <span>•</span>
+          <span className="font-bold">
+            Published at {moment(data.publishedAt).format("MMM Do YYYY")}
+          </span>
+        </div>
         <Image src={data.cover} width={1920} height={1080} alt="banner" />
         <RoughNotationGroup show>
           <PortableText components={serializers} value={data.body} />
@@ -86,7 +102,15 @@ export const getStaticPaths = async () => {
 };
 export const getStaticProps = async ({ params }: any) => {
   const data = await sanityClient.fetch(
-    `*[_type == "blog" && slug.current == $slug][0]`,
+    `*[_type == "blog" && slug.current == $slug][0]{
+      _id,
+      title,
+      description,
+      body,
+      cover,
+      "authorImage": author->image,
+      "author": author->name,
+    }`,
     { slug: params.slug }
   );
   return {
