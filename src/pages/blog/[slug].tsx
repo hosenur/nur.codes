@@ -71,8 +71,9 @@ export default function Blog({ data }: { data: any }) {
           />
           <span className="font-bold">{data.author}</span>
           <span>•</span>
-          <span className="font-bold">
-            Published at {moment(data.publishedAt).format("MMM Do YYYY")}
+          <span className="font-bold flex">
+            <span className="hidden md:block">Published at&nbsp;</span>
+            {moment(data.publishedAt).format("MMM Do YYYY")}
           </span>
         </div>
         <Image src={data.cover} width={1920} height={1080} alt="banner" />
