@@ -49,11 +49,10 @@ const serializers = {
   },
 };
 export default function Blog({ data }: { data: any }) {
-  console.log(data);
   return (
     <>
       <Head>
-        <title>{data.title}</title>
+        <title>Blog</title>
         <meta name="description" content={data.description} />
         <meta property="og:title" content={data.title} />
         <meta property="og:description" content={data.description} />
