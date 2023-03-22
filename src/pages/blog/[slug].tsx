@@ -6,6 +6,9 @@ import Head from "next/head";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { dracula} from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+import Footer from "@/components/Footer";
+import Image from "next/image";
+import urlFor from "@/utils/urlFor";
 const serializers = {
   types: {
     codeBlock: ({ value }: any) => (
@@ -57,12 +60,14 @@ export default function Blog({ data }: { data: any }) {
       </Head>
       <Header />
       <div className="max-w-5xl pt-24 mx-auto p-5 flex flex-col space-y-5">
+        <Image src={data.cover} width={1920} height={1080} alt="banner"/>
         <RoughNotationGroup show>
 
         <PortableText components={serializers} value={data.body} />
         </RoughNotationGroup>
         <Comments />
       </div>
+      <Footer/>
     </>
   );
 }
