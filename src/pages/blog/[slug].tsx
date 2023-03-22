@@ -56,7 +56,7 @@ export default function Blog({ data }: { data: any }) {
         <meta property="og:description" content={data.description} />
       </Head>
       <Header />
-      <div className="max-w-5xl mx-auto p-5 flex flex-col space-y-5">
+      <div className="max-w-5xl pt-24 mx-auto p-5 flex flex-col space-y-5">
         <RoughNotationGroup show>
 
         <PortableText components={serializers} value={data.body} />
