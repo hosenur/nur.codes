@@ -77,9 +77,11 @@ export default function Blog({ data }: { data: any }) {
           </span>
         </div>
         <Image src={data.cover} width={1920} height={1080} alt="banner" />
-        <RoughNotationGroup show>
-          <PortableText components={serializers} value={data.body} />
-        </RoughNotationGroup>
+        <article className="prose prose-a:no-underline md:prose-xl min-w-full">
+          <RoughNotationGroup show>
+            <PortableText components={serializers} value={data.body} />
+          </RoughNotationGroup>
+        </article>
         <Comments />
       </div>
       <Footer />
