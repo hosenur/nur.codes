@@ -57,6 +57,15 @@ export default function Blog({ data }: { data: any }) {
         <meta property="og:title" content={data.title} />
         <meta property="og:description" content={data.description} />
         <meta property="og:image" content={data.cover} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="nur.codes" />
+        <meta
+          property="twitter:url"
+          content="https://nur.codes/blog/awesome-list"
+        />
+        <meta name="twitter:title" content={data.title} />
+        <meta name="twitter:description" content={data.description} />
+        <meta name="twitter:image" content={data.cover} />
       </Head>
       <Header />
       <div className="max-w-5xl pt-24 mx-auto p-5 flex flex-col space-y-5">
