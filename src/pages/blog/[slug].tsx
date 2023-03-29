@@ -68,7 +68,7 @@ export default function Blog({ data }: { data: any }) {
         <meta name="twitter:image" content={data.cover} />
       </Head>
       <Header />
-      <div className="max-w-5xl pt-24 mx-auto p-5 flex flex-col space-y-5">
+      <div className="max-w-5xl pt-24 mx-auto p-5 flex flex-col space-y-5 ">
         <h1 className="font-bold text-3xl">{data.title}</h1>
         <div className="flex space-x-5 items-center">
           <Image
@@ -86,11 +86,9 @@ export default function Blog({ data }: { data: any }) {
           </span>
         </div>
         <Image src={data.cover} width={1920} height={1080} alt="banner" />
-        <article className="prose prose-a:no-underline md:prose-xl min-w-full">
-          <RoughNotationGroup show>
-            <PortableText components={serializers} value={data.body} />
-          </RoughNotationGroup>
-        </article>
+        <RoughNotationGroup show>
+          <PortableText components={serializers} value={data.body} />
+        </RoughNotationGroup>
         <Comments />
       </div>
       <Footer />
