@@ -13,7 +13,7 @@ export default function index({ blogs }: any) {
       </Head>
       <Header />
       <div className="max-w-5xl pt-24 mx-auto p-5 flex flex-col space-y-5">
-        <span className="font-bold text-4xl">Latest Blog Posts</span>
+        {/* <span className="font-bold text-4xl uppercase">Latest Blog Posts</span> */}
         {blogs.map((blog: any) => (
           <div key={blog._id} className="flex  space-y-2 flex-col">
             <Link
@@ -23,7 +23,7 @@ export default function index({ blogs }: any) {
               {blog.title}
             </Link>
             <p>{blog.description}</p>
-            <span className="text-sm">Published at {moment(blog.publishedAt).format("DD.MM.YYYY")}</span>
+            <span className="text-sm text-[#333333]">Published at {moment(blog.publishedAt).format("DD.MM.YYYY")}</span>
           </div>
         ))}
       </div>
