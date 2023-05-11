@@ -1,11 +1,19 @@
 import React from "react";
 import { bold, book, medium } from "./fonts";
 import IonIcon from "@reacticons/ionicons";
+import Image from "next/image";
 
 export default function page() {
   return (
     <div className="bg-zinc-900 max-w-7xl border-zinc-800 p-20 border-r-2 border-l-2 mx-auto min-h-screen text-white flex flex-col gap-10">
       <div className="w-2/3 flex flex-col gap-5">
+        <Image
+          src="https://ik.imagekit.io/kydj5j026nb/image-min_IQzmBOsmi.jpg"
+          width={80}
+          height={80}
+          className="rounded-full"
+          alt="Hosenur Rahaman"
+          />
         <h1 className={"text-5xl font-bold " + bold.className}>
           Software Designer, CS Student, and Linux Enthusiast.
         </h1>
