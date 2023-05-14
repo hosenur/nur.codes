@@ -16,7 +16,7 @@ export default function RootLayout({
       <body className="bg-black min-h-screen">
         <main>
           <div className="bg-zinc-900 max-w-7xl border-zinc-800  border-r-2 border-l-2 mx-auto min-h-screen text-white">
-            <Header/>
+            <Header />
             {children}
           </div>
         </main>

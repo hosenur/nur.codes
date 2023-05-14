@@ -6,12 +6,12 @@ import React from "react";
 
 export default function Header() {
   return (
-    <div className="w-full px-20 py-10 flex items-center justify-between">
+    <div className="w-full px-10 md:px-20 py-10 flex items-center justify-between">
       <Image
         src="https://ik.imagekit.io/kydj5j026nb/image-min_IQzmBOsmi.jpg"
         width={50}
         height={50}
-        className="rounded-full opacity-0"
+        className="rounded-full hidden md:inline-block opacity-0"
         alt="Hosenur Rahaman"
       />
 
@@ -26,7 +26,7 @@ export default function Header() {
         <Link href="/">Projects</Link>
         <Link href="/">Snippets</Link>
       </div>
-      <div className="text-3xl">
+      <div className="text-3xl hidden md:inline-block">
         <IonIcon name="moon" className="text-zinc-500" />
       </div>
     </div>
